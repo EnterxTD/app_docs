@@ -22,7 +22,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="stamp">LEDGER — RETIREMENT CALCULATOR · EFFECTIVE 18 AUGUST 2026</p>
+<p class="stamp">LEDGER — RETIREMENT CALCULATOR · EFFECTIVE 1 SEPTEMBER 2026</p>
 
 <p>Ledger is a retirement calculator. It keeps what you enter on your device and asks for
 nothing about you — no account, no sign-in, no name, no email, no advertising identifier.
@@ -35,25 +35,33 @@ is stored on your device alone, in the app's own storage. So is The Register, th
 history of scenarios you save. None of it is uploaded, backed up to us, or readable by us.
 Deleting the app deletes all of it.</p>
 
-<h2>What is sent, and only when you ask for it</h2>
+<h2>What is sent, and when</h2>
 <p>Three features are written by AI: the margin note on the index, the reading under a saved
-comparison, and the console you open from the machine square.</p>
-<p>Where your device can write these itself, it does, and nothing leaves the device. Where it
-cannot, the app sends the worksheet's <em>printed figures and labels</em> — the same lines you
-can already see on screen — to a proxy service we operate, which passes them to the AI model
-that writes the prose. Nothing else is sent. No name, no account, no device identifier, no
-contact details, no location, no contents of The Register beyond the comparison you are
-reading.</p>
+comparison, and the console you open from the machine square. All three run only while a
+Ledger AI subscription is on. The console sends only when you ask it a question; the margin
+note and the reading are requested automatically when their screens open, so that the note is
+already there when you look.</p>
+<p>Your figures live on your device. They leave it only while Ledger AI is on: where your
+device can write these features itself, it does, and nothing leaves. Where it cannot, the app
+sends the worksheet's <em>printed figures and labels</em> — the same lines you can already see
+on screen — to a proxy service we operate, which passes them to the AI model that writes the
+prose. Nothing else is sent. No name, no account, no device identifier, no contact details, no
+location, no contents of The Register beyond the comparison you are reading.</p>
 <ul>
   <li>Our proxy runs on Cloudflare Workers. It <strong>stores nothing</strong> — no database, no
       logs of your figures. It holds the request only long enough to answer it.</li>
   <li>Cloudflare handles the network request and sees the originating IP address, which is used
-      to rate-limit the free service and is not retained by us or joined to anything.</li>
+      to rate-limit the service and is not retained by us or joined to anything.</li>
+  <li>Each request also carries your Ledger AI subscription's own App Store receipt, so the
+      service can confirm the subscription is live before answering. It identifies the
+      subscription, not you — no name, no email, no payment details — and it is kept only
+      briefly, to avoid re-checking on every request.</li>
   <li>The prose is written by a model served by
       <a href="https://www.together.ai/privacy">Together AI</a>, which processes the request
       under its own privacy terms.</li>
 </ul>
-<p>If you never use those three features, the app sends nothing at all.</p>
+<p>Without a Ledger AI subscription, or with those features unused, the app sends nothing at
+all.</p>
 
 <h2>Dictation</h2>
 <p>The console's microphone key transcribes speech into the input line using Apple's speech
@@ -62,8 +70,9 @@ is live only while you hold that key on. Ledger keeps no recording and transmits
 
 <h2>Purchases</h2>
 <p>Purchases and subscriptions are handled entirely by Apple through the App Store. We never
-see or receive your payment details, card number, or Apple Account. The app only asks Apple
-whether a purchase is present.</p>
+see or receive your payment details, card number, or Apple Account. The app asks Apple whether
+a purchase is present, and the one place a purchase record travels is the AI service above:
+requests carry the subscription's own receipt so the service can confirm it is live.</p>
 
 <h2>What we do not do</h2>
 <ul>
