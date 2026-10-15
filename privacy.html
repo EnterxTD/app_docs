@@ -9,9 +9,9 @@
   body {
     max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
     font: 16px/1.6 ui-serif, Georgia, "Times New Roman", serif;
-    background: #f2f4ec; color: #1c1f1a;
+    background: #f6f3ec; color: #183d30;
   }
-  @media (prefers-color-scheme: dark) { body { background: #14170f; color: #e8ebe0; } }
+  @media (prefers-color-scheme: dark) { body { background: #111b18; color: #f1f0e7; } }
   h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
   h2 { font-size: 1.05rem; margin: 2rem 0 .5rem; letter-spacing: .04em; text-transform: uppercase; }
   .stamp { font: 12px/1.4 ui-monospace, Menlo, monospace; letter-spacing: .08em; opacity: .7; margin-bottom: 2rem; }
@@ -22,85 +22,123 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="stamp">LEDGER — RETIREMENT CALCULATOR · EFFECTIVE 1 SEPTEMBER 2026</p>
+<p class="stamp">LEDGER · UPDATED 13 OCTOBER 2026</p>
 
-<p>Ledger is a retirement calculator. It keeps what you enter on your device and asks for
-nothing about you — no account, no sign-in, no name, no email, no advertising identifier.
-This policy says plainly what the app holds, what it sends, and where the one thing it does
-send goes.</p>
+<p>Ledger is a retirement calculator with optional AI features. You enter your own numbers;
+Ledger does not connect to your bank or brokerage, and no Ledger account is required.
+This policy describes the data stored in the app and the data used by its optional services.</p>
 
-<h2>What stays on your device</h2>
-<p>Everything you type — your age, salary, balance, contribution rate, and every other input —
-is stored on your device alone, in the app's own storage. So is The Register, the dated
-history of scenarios you save. None of it is uploaded, backed up to us, or readable by us.
-Deleting the app deletes all of it.</p>
+<h2>Inputs and saved snapshots</h2>
+<p>Your inputs, dated progress updates, and Register snapshots are stored in the app's storage on your device.
+Ledger does not provide a server account that syncs this record. You can preview and share a PDF
+report of the Register using the export action, including saved assumptions, results,
+and recorded progress. Copies you save, print, or share are handled by the destinations
+you choose. The app does not upload the whole Register
+for AI processing; only the figures relevant to a feature are sent as described below.</p>
+<p>Deleting the app removes its local data. Copies you exported or included in device backups
+may remain under the controls of the apps or backup services you used.</p>
 
-<h2>What is sent, and when</h2>
-<p>Three features are written by AI: the margin note on the index, the reading under a saved
-comparison, and the console you open from the machine square. All three run only while a
-Ledger AI subscription is on. The console sends only when you ask it a question; the margin
-note and the reading are requested automatically when their screens open, so that the note is
-already there when you look.</p>
-<p>Your figures live on your device. They leave it only while Ledger AI is on: where your
-device can write these features itself, it does, and nothing leaves. Where it cannot, the app
-sends the worksheet's <em>printed figures and labels</em> — the same lines you can already see
-on screen — to a proxy service we operate, which passes them to the AI model that writes the
-prose. Nothing else is sent. No name, no account, no device identifier, no contact details, no
-location, no contents of The Register beyond the comparison you are reading.</p>
+<h2>AI features and what they send</h2>
+<p>The calculators run locally and do not need AI processing. All tools require an active Ledger trial or subscription. Disabling AI sharing does not disable calculators for subscribers. Cloud processing
+requires your permission as well as an active subscription. Ask Ledger requests permission
+when opened; you can withdraw it in Memory &amp; privacy.
+After you allow cloud processing:</p>
 <ul>
-  <li>Our proxy runs on Cloudflare Workers. It <strong>stores nothing</strong> — no database, no
-      logs of your figures. It holds the request only long enough to answer it.</li>
-  <li>Cloudflare handles the network request and sees the originating IP address, which is used
-      to rate-limit the service and is not retained by us or joined to anything.</li>
-  <li>Each request also carries your Ledger AI subscription's own App Store receipt, so the
-      service can confirm the subscription is live before answering. It identifies the
-      subscription, not you — no name, no email, no payment details — and it is kept only
-      briefly, to avoid re-checking on every request.</li>
-  <li>The prose is written by a model served by
-      <a href="https://www.together.ai/privacy">Together AI</a>, which processes the request
-      under its own privacy terms.</li>
+  <li><strong>Comparison readings</strong> use Apple's on-device model when available. Otherwise,
+      opening or changing a comparison can send its displayed labels and before-and-after figures
+      to cloud AI.</li>
+  <li><strong>The assistant</strong> generates conversational answers and suggested questions
+      through Together AI via Cloudflare. Opening Ask Ledger, changing its context or inputs,
+      or continuing a conversation can automatically request suggested questions after consent.
+      These requests send the selected context's facts and assumptions and bounded recent
+      conversation turns. Answer requests also include your question. The selected context can be a
+      calculator, saved-plan comparison, or progress review. Saved preferences are included
+      only if you turn on their separate sharing setting. Text you include in a question is
+      part of that request. Ledger calculates proposed results locally and requires your tap
+      to apply a change.</li>
+  <li><strong>Progress reviews</strong> can select highlights when you open a report, using
+      Apple's on-device model when available. Otherwise, cloud AI receives a small set of
+      observations containing recorded balances, dates, employee contributions, and changes
+      computed from those records. The review request excludes projected balances, assumed
+      future contributions, saved alternatives, and chat history. AI selects existing
+      observations; it cannot change their figures or apply changes to your plan.</li>
 </ul>
-<p>Without a Ledger AI subscription, or with those features unused, the app sends nothing at
-all.</p>
+<p>Cloud requests go to a service we operate on Cloudflare Workers, then to a model hosted by
+Together AI. Each request also carries the signed App Store transaction for your Ledger AI
+subscription to check access. It contains purchase identifiers and subscription details, not
+your payment-card details or Apple Account password. Requests can therefore be associated
+with the same subscription even though Ledger does not ask for your name or email.</p>
+
+<h2>Service data and retention</h2>
+<p>Conversation history, drafts, and preferences you explicitly save are stored on your device.
+You can search or delete conversations, turn off conversation-history retention, and inspect,
+edit, or delete saved preferences in the assistant. Saved review summaries have separate
+deletion controls. Clearing conversations does not delete your financial inputs, Register
+snapshots, saved review summaries, or saved preferences. Deleting local history does not erase
+requests already processed by cloud providers.</p>
+<p>The AI service uses subscription identifiers, cached access checks, and request timing to
+validate subscriptions and limit abuse. Network providers also process connection metadata,
+such as IP addresses, to deliver and protect the service. Service errors may be recorded for
+operational troubleshooting. These functions are separate from the local Register.</p>
+<p>Together AI processes prompts and responses under its
+<a href="https://www.together.ai/privacy">privacy policy</a> and the account's retention
+settings. Its <a href="https://docs.together.ai/docs/privacy-and-security">privacy documentation</a>
+describes prompt and response storage by default and an organization setting for zero data
+retention. Ledger does not promise zero data retention for these cloud requests.</p>
 
 <h2>Dictation</h2>
-<p>The console's microphone key transcribes speech into the input line using Apple's speech
-recognition, preferring the on-device recogniser where your device supports it. The microphone
-is live only while you hold that key on. Ledger keeps no recording and transmits no audio.</p>
+<p>The assistant's microphone button transcribes speech into the input line. You can review or
+edit the text before sending it. Ledger requests microphone and speech-recognition permission
+when you use this feature and does not store recordings or send audio to its AI proxy.</p>
+<p>Speech recognition stays on-device where the recognizer supports it. Otherwise, audio may
+be sent to Apple for transcription. Apple's handling depends on your device and privacy
+settings; see <a href="https://www.apple.com/legal/privacy/data/en/ask-siri-dictation/">Siri,
+Dictation &amp; Privacy</a>. You can change Ledger's access in iOS Settings under Privacy &amp;
+Security, Microphone and Speech Recognition.</p>
 
-<h2>Purchases</h2>
-<p>Purchases and subscriptions are handled entirely by Apple through the App Store. We never
-see or receive your payment details, card number, or Apple Account. The app asks Apple whether
-a purchase is present, and the one place a purchase record travels is the AI service above:
-requests carry the subscription's own receipt so the service can confirm it is live.</p>
+<h2>Purchases and notifications</h2>
+<p>Apple handles purchases and subscriptions. Ledger reads the verified purchase status to
+open the tools you own; the signed subscription transaction is also used by the AI service
+as described above. Ledger does not receive your card information.</p>
+<p>If you start a free trial, the app may ask permission to send a local renewal
+reminder. Ledger does not send marketing notifications.</p>
 
-<h2>What we do not do</h2>
-<ul>
-  <li>No tracking, and no data is shared with data brokers or advertisers.</li>
-  <li>No analytics or crash-reporting service. The app contains no third-party SDK of any kind.</li>
-  <li>No selling of personal information, and no sharing of it for cross-context advertising.</li>
-  <li>No profiles built about you. There is no account to build one against.</li>
-</ul>
+<h2>Tracking and advertising</h2>
+<p>Ledger has no advertising identifier, third-party analytics SDK, or advertising SDK. Its
+service data is used to provide and protect the app's functions, not to track you across
+other companies' apps or websites or to sell information to advertisers.</p>
 
 <h2>Children</h2>
-<p>Ledger is a financial calculator for adults and is not directed to children under 13. It
-knowingly collects nothing from them.</p>
+<p>Ledger is intended for adults planning retirement and is not directed to children under 13.</p>
 
-<h2>Your rights</h2>
-<p>Because the app holds no personal information about you on any server, there is no account
-to access, correct, export, or delete. The data is yours, on your device, and removing the app
-removes it. If you have a question about this, write to us.</p>
+<h2>Review reminders</h2>
+<p>Quarterly review reminders are on by default and scheduled locally on your device.
+You can turn them off in Your progress, including before your first review. After your first
+review, Ledger asks for iOS notification permission if needed; alerts cannot appear without
+permission. You can also set a date manually. Existing opt-outs are preserved. Reminder
+preferences and the figures last included in a review are stored locally to avoid duplicate
+in-app invitations. Reading a review moves an enabled reminder three months ahead; an ignored
+reminder does not generate follow-up nudges. Notifications contain no financial figures and
+do not send your progress to a notification server or request AI processing in the background.
+You can turn reminders off in Your progress or change notification permission in device Settings.</p>
+
+<h2>Your choices and contact</h2>
+<p>Every tool needs an active Ledger trial or subscription. You choose whether to allow cloud
+AI, whether to send a question to Ask Ledger, and whether to use dictation; Apple manages your
+purchases. You can revoke cloud permission in Memory &amp; privacy. While permission and a
+subscription are active, comparison readings, suggested questions, and progress-review
+highlights can be requested automatically as described above. Suggestions inside Ask Ledger
+can be dismissed or turned off in Memory &amp; privacy.</p>
+<p>For privacy questions or requests, contact
+<a href="mailto:tony.vi.dinh@gmail.com">tony.vi.dinh@gmail.com</a>.</p>
 
 <h2>Not advice</h2>
-<p>Ledger shows arithmetic, not recommendations. Every figure is a projection built on the
-assumptions you enter. Nothing in the app is investment, tax, or legal advice.</p>
+<p>Ledger shows calculations based on your assumptions. Results and AI responses are estimates,
+not investment, tax, or legal advice.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes, the effective date above changes with it, and the revised policy is
-posted at this address before it takes effect.</p>
-
-<h2>Contact</h2>
-<p><a href="mailto:tony.vi.dinh@gmail.com">tony.vi.dinh@gmail.com</a></p>
+<p>We update the date above when this policy changes. The version included in the app describes
+the practices for that version of Ledger.</p>
 
 </body>
 </html>
